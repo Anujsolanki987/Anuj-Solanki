@@ -1,270 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anuj Solanki | IT Recruiter Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anuj Solanki | IT Recruiter</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Google Analytics (Replace G-XXXXXXX) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXX');
+</script>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --bg: #0f2027;
+  --card: rgba(255,255,255,0.08);
+  --text: #ffffff;
+  --accent: #00e0ff;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color: #e5e7eb;
-    }
+.light {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #222;
+  --accent: #0066ff;
+}
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-    .container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+body {
+  background: linear-gradient(120deg, var(--bg), #203a43);
+  color: var(--text);
+  transition: all 0.4s ease;
+}
 
-    /* ANIMATIONS */
-    .fade-up {
-      animation: fadeUp 1s ease forwards;
-      opacity: 0;
-    }
+header {
+  text-align: center;
+  padding: 90px 20px;
+}
 
-    .zoom-in {
-      animation: zoomIn 1s ease forwards;
-      opacity: 0;
-    }
+header h1 {
+  font-size: 3rem;
+}
 
-    @keyframes fadeUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+header p {
+  opacity: 0.85;
+  margin-top: 10px;
+}
 
-    @keyframes zoomIn {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: var(--card);
+  padding: 10px 14px;
+  border-radius: 30px;
+}
 
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: center;
-      margin-bottom: 90px;
-    }
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    .hero h1 {
-      font-size: 46px;
-      margin-bottom: 10px;
-    }
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+}
 
-    .hero h3 {
-      font-weight: 400;
-      color: #94a3b8;
-      margin-bottom: 20px;
-    }
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .hero p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #cbd5f5;
-    }
+.card:hover {
+  transform: scale(1.04);
+}
 
-    .buttons a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-top: 20px;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+h2 {
+  color: var(--accent);
+  margin-bottom: 15px;
+}
 
-    .btn-primary {
-      background: #38bdf8;
-      color: #020617;
-    }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .btn-primary:hover {
-      transform: scale(1.05);
-    }
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 22px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 30px;
+}
 
-    .btn-outline {
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
-    }
+.jobs li {
+  margin-bottom: 10px;
+}
 
-    .btn-outline:hover {
-      background: #38bdf8;
-      color: #020617;
-    }
+.whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: white;
+  padding: 15px 18px;
+  border-radius: 50%;
+  font-size: 22px;
+}
 
-    /* CARDS */
-    .card {
-      background: #020617;
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    section {
-      margin-bottom: 90px;
-    }
-
-    section h2 {
-      font-size: 28px;
-      margin-bottom: 30px;
-      border-left: 5px solid #38bdf8;
-      padding-left: 15px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .skills span {
-      display: inline-block;
-      background: #020617;
-      border: 1px solid #1e293b;
-      padding: 10px 16px;
-      border-radius: 25px;
-      margin: 6px;
-      font-size: 13px;
-      transition: all 0.3s ease;
-    }
-
-    .skills span:hover {
-      background: #38bdf8;
-      color: #020617;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid #1e293b;
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    @media(max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.7;
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- HERO -->
-    <div class="hero">
-      <div class="fade-up">
-        <h1>Anuj Solanki</h1>
-        <h3>IT Recruiter · Talent Acquisition · US Staffing</h3>
-        <p>
-          IT Recruiter and Talent Acquisition professional specializing in full-cycle recruitment
-          for US IT staffing. I partner with hiring managers and clients to deliver top technical
-          talent across Cloud, Java, Salesforce, Data, and QA domains.
-        </p>
+<div class="toggle" onclick="toggleMode()">🌙 / ☀️</div>
 
-        <div class="buttons">
-          <a href="https://www.linkedin.com/in/anuj-solanki-a276a0253/" target="_blank" class="btn-primary">
-            View LinkedIn
-          </a>
-          <a href="#contact" class="btn-outline">
-            Contact Me
-          </a>
-        </div>
-      </div>
+<header>
+  <h1>Anuj Solanki</h1>
+  <p>IT Recruiter | US Staffing | Tech Hiring Specialist</p>
+  <a class="btn" href="resume.pdf" download>📄 Download Resume</a>
+</header>
 
-      <div class="card zoom-in">
-        <h4>Quick Snapshot</h4>
-        <ul>
-          <li>End-to-end IT Recruitment</li>
-          <li>US Staffing (W2 / C2C / Contract)</li>
-          <li>Niche & senior technical roles</li>
-          <li>Strong candidate & client relationships</li>
-        </ul>
-      </div>
-    </div>
+<section>
 
-    <!-- WHAT I DO -->
-    <section class="fade-up">
-      <h2>What I Do</h2>
-      <div class="grid">
-        <div class="card">
-          <h4>Talent Sourcing</h4>
-          <p>LinkedIn Recruiter, Boolean search, referrals, and job portals.</p>
-        </div>
-        <div class="card">
-          <h4>Screening & Interviews</h4>
-          <p>Resume screening, initial interviews, and candidate qualification.</p>
-        </div>
-        <div class="card">
-          <h4>Client Coordination</h4>
-          <p>Requirement analysis, interview scheduling, and offer support.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROLES -->
-    <section class="fade-up">
-      <h2>Roles I Hire For</h2>
-      <div class="grid">
-        <div class="card">Java & Full Stack Developers</div>
-        <div class="card">Salesforce Developers & BAs</div>
-        <div class="card">Cloud & DevOps Engineers</div>
-        <div class="card">Data Analysts & Engineers</div>
-        <div class="card">QA & Automation Engineers</div>
-        <div class="card">Product & Business Analysts</div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="fade-up">
-      <h2>Skills & Tools</h2>
-      <div class="skills">
-        <span>IT Recruitment</span>
-        <span>Talent Acquisition</span>
-        <span>US Staffing</span>
-        <span>LinkedIn Recruiter</span>
-        <span>Boolean Search</span>
-        <span>ATS</span>
-        <span>Client Management</span>
-        <span>Interview Coordination</span>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="fade-up">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>📞 US: +1 732 479 2302</p>
-        <p>📞 India: +91 9310242511</p>
-        <p>🔗 <a href="https://www.linkedin.com/in/anuj-solanki-a276a0253/" target="_blank">LinkedIn Profile</a></p>
-      </div>
-    </section>
-
-    <footer>
-      © 2026 Anuj Solanki · Portfolio hosted on GitHub Pages
-    </footer>
-
+  <div class="card">
+    <h2>About Me</h2>
+    <p>
+      IT Recruiter with strong experience in US staffing, partnering with
+      clients to hire top-tier technology talent across engineering,
+      cloud, data, and product roles.
+    </p>
   </div>
+
+  <div class="card">
+    <h2>What I Hire For</h2>
+    <ul>
+      <li>✔ Java / Full Stack Developers</li>
+      <li>✔ Salesforce Consultants & Architects</li>
+      <li>✔ Cloud & DevOps Engineers</li>
+      <li>✔ Data Engineers & Analysts</li>
+      <li>✔ Product Managers & BAs</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Open Job Postings</h2>
+    <ul class="jobs">
+      <li>📌 Senior Java Developer – USA (Hybrid)</li>
+      <li>📌 Salesforce Tech Lead – Alpharetta, GA</li>
+      <li>📌 Cloud Solutions Architect – AWS</li>
+      <li>📌 Data Analyst – Remote</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>📞 US: +1 732 479-2302</p>
+    <p>📞 India: +91 9310242511</p>
+    <p>
+      🔗 <a href="https://www.linkedin.com/in/anuj-solanki-a276a0253/" target="_blank">
+      LinkedIn Profile</a>
+    </p>
+  </div>
+
+</section>
+
+<a class="whatsapp" href="https://wa.me/17324792302" target="_blank">💬</a>
+
+<footer>
+© 2026 Anuj Solanki | GitHub Pages
+</footer>
+
+<script>
+function toggleMode() {
+  document.body.classList.toggle("light");
+}
+
+const cards = document.querySelectorAll(".card");
+window.addEventListener("scroll", () => {
+  cards.forEach(card => {
+    const pos = card.getBoundingClientRect().top;
+    if (pos < window.innerHeight - 100) {
+      card.classList.add("show");
+    }
+  });
+});
+</script>
+
 </body>
 </html>
